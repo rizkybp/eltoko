@@ -1,0 +1,15 @@
+restore dahulu db yang ada beranama etoko
+lalu jalankan aplikasi
+
+untuk nasabah saat setelah run pilih menu nasabah paba navbar nya
+akan masuk halaman index yang bisa untuk edit ,create ,serta halaman detail
+
+untuk transaksi saat setelah run pilih menu transaksi paba navbar nya
+akan masuk halaman index yang bisa untuk edit ,create ,serta halaman detail
+
+
+
+untuk point saat setelah run pilih menu point pada navbar nya
+
+
+untuk report pilih menu report pada navbar

@@ -1,0 +1,114 @@
+﻿@model IEnumerable<ElToko.Models.TransaksiNasabah>
+
+@{
+    ViewBag.Title = "Report";
+}
+
+<h2>Report</h2>
+
+<div class="well well-sm" id="own_div_search">
+    <form method='POST' class='form-horizontal'>
+        
+        
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label class="control-label col-sm-4">Accoint Id</label>
+                    <div class="col-sm-6">
+                        <input type="text" id="AccountId" name="AccountId" class="form-control input-sm" value="@ViewBag.AccountId" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-sm-4">StartDate</label>
+                    <div class="col-sm-6">
+                        <input type="date" id="StartDate" name="StartDate" class="form-control input-sm" value="@ViewBag.StartDate" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-4">EndDate</label>
+                    <div class="col-sm-6">
+                        <input type="date" id="EndDate" name="EndDate" class="form-control input-sm" value="@ViewBag.EndDate" />
+                    </div>
+                </div>
+
+             
+                
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-11" align="right">
+
+                <button type="submit" class="btn btn-default btn-sm">Search</button>
+            </div>
+        </div>
+
+    </form>
+
+</div>
+<hr />
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+
+        <th>
+            @Html.DisplayNameFor(model => model.TransactionDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            Credit
+        </th>
+        <th>
+            Debit
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Amount)
+        </th>
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+
+    <td>
+        @Html.DisplayFor(modelItem => item.TransactionDate)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Description)
+    </td>
+    <td>
+        @if(item.DebitCreditStatus == "C")
+        {
+            <span>@(item.Amount) </span>
+        }
+        else
+        {
+            <span>-</span>
+        }
+
+    </td>
+    <td>
+        @if (item.DebitCreditStatus == "D")
+        {
+            <span>@(item.Amount) </span>
+        }
+        else
+        {
+            <span>-</span>
+        }
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Amount)
+    </td>
+
+</tr>
+    }
+
+</table>

@@ -1,0 +1,63 @@
+﻿@model System.Data.DataTable
+@{
+    ViewBag.Title = "ShowPoint";
+}
+
+<h2>ShowPoint</h2>
+@if (Model == null || Model.Rows.Count <= 0)
+{
+    <br />
+    <h2>Data Kosong</h2>
+
+}
+else
+{
+    <table  id="index_table" style="width:100%">
+
+        <thead>
+            <tr>
+                @*<th class="action"></th>*@
+
+                <th>NO</th>
+                <th>Account Id</th>
+                <th>Point </th>
+               
+            </tr>
+
+        </thead>
+        @{
+            int row_count = 0;
+            
+        }
+        <tbody>
+            @foreach (System.Data.DataRow row in Model.Rows)
+            {
+                if (row == null) { continue; }
+                row_count += 1;
+                
+
+                <tr>
+                    @*<td class="action text-nowrap">
+                            <a href="@Url.Content("~/PartPackage/Delete/")@Html.Encode(row["id"])" id="btnDelete_@(row_count)" class="btn btn-default btn-xs btnDelete" style="text-decoration:none">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </a>
+                            <a href="@Url.Content("~/PartPackage/Edit/")@Html.Encode(row["id"])" id="btnEdit_@(row_count)" class="btn btn-default btn-xs" style="text-decoration:none" >
+                                <span class="glyphicon glyphicon-pencil"></span>
+                            </a>
+                        </td>*@
+                    <td>
+                        @row_count
+                    </td>
+                    <td nowrap="nowrap">
+                        @(row["AccountId"])
+                    </td>
+                    <td>
+                        @(row["point"])
+                    </td>
+
+                  
+                </tr>
+            }
+        </tbody>
+    </table>
+}
